@@ -1,6 +1,6 @@
 {
   "name": "@gkalpak/ng-maintain",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "A collection of command-line utilities to help maintain (AngularJS-related) GitHub repositories.",
   "keywords": [
     "Private",
