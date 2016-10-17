@@ -1,0 +1,42 @@
+{
+  "name": "@gkalpak/ng-maintain",
+  "version": "0.0.0",
+  "description": "A collection of command-line utilities to help maintain (AngularJS-related) GitHub repositories.",
+  "keywords": [
+    "Private",
+    "Utility",
+    "AngularJS"
+  ],
+  "scripts": {
+    "lint": "eslint .",
+    "prepublish": "npm test",
+    "pretest": "npm run lint",
+    "test": "npm run test-unit && npm run test-e2e",
+    "test-e2e": "node scripts/run-tests --type=e2e",
+    "test-unit": "node scripts/run-tests --type=unit",
+    "test-watch": "npm run test-unit -- --watch",
+    "preversion": "npm test",
+    "postversion": "git push && git push --tags"
+  },
+  "bin": {
+    "ngm-cla-check": "node_modules/@gkalpak/ng-cla-check/index.js",
+    "ngm-pr-merge": "node_modules/@gkalpak/ng-pr-merge/index.js"
+  },
+  "license": "Unlicense",
+  "author": "gkalpak <kalpakas.g@gmail.com>",
+  "homepage": "https://github.com/gkalpak/ng-maintain#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gkalpak/ng-maintain.git"
+  },
+  "dependencies": {
+    "@gkalpak/ng-cla-check": "0.0.22",
+    "@gkalpak/ng-maintain-utils": "0.0.10",
+    "@gkalpak/ng-pr-merge": "0.0.21"
+  },
+  "devDependencies": {
+    "eslint": "^3.8.1",
+    "eslint-plugin-jasmine": "^1.8.1",
+    "jasmine": "^2.5.2"
+  }
+}
