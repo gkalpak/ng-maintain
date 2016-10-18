@@ -30,7 +30,7 @@
     "url": "git+https://github.com/gkalpak/ng-maintain.git"
   },
   "dependencies": {
-    "@gkalpak/ng-cla-check": "0.0.22",
+    "@gkalpak/ng-cla-check": "0.0.23",
     "@gkalpak/ng-maintain-utils": "0.0.11",
     "@gkalpak/ng-pr-merge": "0.0.21"
   },
