@@ -9,6 +9,10 @@ A collection of command-line utilities to help maintain (AngularJS-related) GitH
 The following command-line tools are included:
 
 - **ngm-cla-check:** [ng-cla-check][ng-cla-check]'s `ng-cla-check`.
+- **ngm-diff-wh:** A `git diff` alternative based on [ng-maintain-utils][ng-maintain-utils]'
+  `GitUtils.diffWithHighlight()`. See [ng-maintain-utils][ng-maintain-utils] for more info.
+- **ngm-diff-wh:** A `git diff` alternative based on [ng-maintain-utils][ng-maintain-utils]'
+  `GitUtils.diffWithHighlight2()`. See [ng-maintain-utils][ng-maintain-utils] for more info.
 - **ngm-pr-merge:** [ng-pr-merge][ng-pr-merge]'s `ng-pr-merge`.
 
 ## Testing

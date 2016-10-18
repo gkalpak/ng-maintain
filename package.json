@@ -20,6 +20,8 @@
   },
   "bin": {
     "ngm-cla-check": "node_modules/@gkalpak/ng-cla-check/index.js",
+    "ngm-diff-wh": "index-diff-wh.js --",
+    "ngm-diff-wh2": "index-diff-wh.js --type=2 --",
     "ngm-pr-merge": "node_modules/@gkalpak/ng-pr-merge/index.js"
   },
   "license": "Unlicense",
