@@ -31,57 +31,48 @@ describe('diffWithHighlight', () => {
     expect(GitUtils.prototype.diffWithHighlight).toHaveBeenCalledTimes(1);
     expect(GitUtils.prototype.diffWithHighlight2).not.toHaveBeenCalled();
 
-    diffWithHighlight(['--type=1']);
+    diffWithHighlight([], 1);
 
     expect(GitUtils.prototype.diffWithHighlight).toHaveBeenCalledTimes(2);
     expect(GitUtils.prototype.diffWithHighlight2).not.toHaveBeenCalled();
 
-    diffWithHighlight(['--type=3']);
+    diffWithHighlight([], 'foo');
 
     expect(GitUtils.prototype.diffWithHighlight).toHaveBeenCalledTimes(3);
     expect(GitUtils.prototype.diffWithHighlight2).not.toHaveBeenCalled();
   });
 
-  it('should call `GitUtils.diffWithHighlight2()` if called with `--type=2`', () => {
-    diffWithHighlight(['--type=2']);
+  it('should call `GitUtils.diffWithHighlight2()` if called with `diffType: 2`', () => {
+    diffWithHighlight([], 2);
 
     expect(GitUtils.prototype.diffWithHighlight2).toHaveBeenCalled();
     expect(GitUtils.prototype.diffWithHighlight).not.toHaveBeenCalled();
   });
 
-  it('should pass the (non-option) arguments to `GitUtils.diffWithHighlight[2]`', () => {
-    let argsList = [
-      ['foo', 'bar', 'baz', 'qux'],
-      ['foo', '--bar=baz', '--qux'],
-      ['foo', '--bar', '--', 'baz', '--qux']
-    ];
-
-    argsList.forEach(args => diffWithHighlight(args));
+  it('should join the arguments and pass them to `GitUtils.diffWithHighlight[2]`', () => {
+    diffWithHighlight(['foo', 'bar', 'baz', 'qux']);
 
     expect(GitUtils.prototype.diffWithHighlight).toHaveBeenCalledWith('foo bar baz qux');
-    expect(GitUtils.prototype.diffWithHighlight).toHaveBeenCalledWith('foo');
-    expect(GitUtils.prototype.diffWithHighlight).toHaveBeenCalledWith('foo baz --qux');
     expect(GitUtils.prototype.diffWithHighlight2).not.toHaveBeenCalled();
 
     GitUtils.prototype.diffWithHighlight.calls.reset();
     GitUtils.prototype.diffWithHighlight2.calls.reset();
 
-    argsList.forEach(args => diffWithHighlight(['--type=2'].concat(args)));
+    diffWithHighlight(['foo', 'bar', 'baz', 'qux'], 2);
 
     expect(GitUtils.prototype.diffWithHighlight).not.toHaveBeenCalled();
     expect(GitUtils.prototype.diffWithHighlight2).toHaveBeenCalledWith('foo bar baz qux');
-    expect(GitUtils.prototype.diffWithHighlight2).toHaveBeenCalledWith('foo');
-    expect(GitUtils.prototype.diffWithHighlight2).toHaveBeenCalledWith('foo baz --qux');
   });
 
   it('should return a promise', () => {
     expect(diffWithHighlight([])).toEqual(jasmine.any(Promise));
+    expect(diffWithHighlight([], 2)).toEqual(jasmine.any(Promise));
   });
 
   describe('- Returned promise', () => {
     it('should resolve with the value from `GitUtils.diffWithHighlight[2]`', done => {
       let promise1 = diffWithHighlight([]).then(value => expect(value).toBe('foo'));
-      let promise2 = diffWithHighlight(['--type=2']).then(value => expect(value).toBe('bar'));
+      let promise2 = diffWithHighlight([], 2).then(value => expect(value).toBe('bar'));
 
       deferred.resolve('foo');
       deferred2.resolve('bar');
@@ -94,7 +85,7 @@ describe('diffWithHighlight', () => {
     it('should reject with the error from `GitUtils.diffWithHighlight[2]`', done => {
       let promise1 = diffWithHighlight([]).
         then(() => Promise.reject(), value => expect(value).toBe('foo'));
-      let promise2 = diffWithHighlight(['--type=2']).
+      let promise2 = diffWithHighlight([], 2).
         then(() => Promise.reject(), value => expect(value).toBe('bar'));
 
       deferred.reject('foo');
