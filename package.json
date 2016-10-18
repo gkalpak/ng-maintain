@@ -32,7 +32,7 @@
   "dependencies": {
     "@gkalpak/ng-cla-check": "0.0.23",
     "@gkalpak/ng-maintain-utils": "0.0.11",
-    "@gkalpak/ng-pr-merge": "0.0.21"
+    "@gkalpak/ng-pr-merge": "0.0.22"
   },
   "devDependencies": {
     "eslint": "^3.8.1",
