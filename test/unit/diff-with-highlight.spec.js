@@ -45,7 +45,7 @@ describe('diffWithHighlight', () => {
   it('should call `GitUtils.diffWithHighlight2()` if called with `diffType: 2`', () => {
     diffWithHighlight([], 2);
 
-    expect(GitUtils.prototype.diffWithHighlight2).toHaveBeenCalled();
+    expect(GitUtils.prototype.diffWithHighlight2).toHaveBeenCalledWith(jasmine.any(String));
     expect(GitUtils.prototype.diffWithHighlight).not.toHaveBeenCalled();
   });
 
