@@ -71,29 +71,33 @@ describe('diffWithHighlight', () => {
 
   describe('- Returned promise', () => {
     it('should resolve with the value from `GitUtils.diffWithHighlight[2]`', done => {
+      /* eslint-disable jasmine/no-promise-without-done-fail */
       let promise1 = diffWithHighlight([]).then(value => expect(value).toBe('foo'));
       let promise2 = diffWithHighlight([], 2).then(value => expect(value).toBe('bar'));
+      /* eslint-enable jasmine/no-promise-without-done-fail */
 
       deferred.resolve('foo');
       deferred2.resolve('bar');
 
       Promise.
         all([promise1, promise2]).
-        then(done);
+        then(done, done.fail);
     });
 
     it('should reject with the error from `GitUtils.diffWithHighlight[2]`', done => {
+      /* eslint-disable jasmine/no-promise-without-done-fail */
       let promise1 = diffWithHighlight([]).
         then(() => Promise.reject(), value => expect(value).toBe('foo'));
       let promise2 = diffWithHighlight([], 2).
         then(() => Promise.reject(), value => expect(value).toBe('bar'));
+      /* eslint-enable jasmine/no-promise-without-done-fail */
 
       deferred.reject('foo');
       deferred2.reject('bar');
 
       Promise.
         all([promise1, promise2]).
-        then(done);
+        then(done, done.fail);
     });
   });
 });
