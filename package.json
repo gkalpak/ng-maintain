@@ -9,13 +9,14 @@
   ],
   "scripts": {
     "lint": "eslint .",
-    "prepublish": "npm test",
+    "prerelease": "npm test",
+    "release": "npm version",
+    "postrelease": "npm publish",
     "pretest": "npm run lint",
     "test": "npm run test-unit && npm run test-e2e",
     "test-e2e": "node scripts/run-tests --type=e2e",
     "test-unit": "node scripts/run-tests --type=unit",
     "test-watch": "npm run test-unit -- --watch",
-    "preversion": "npm test",
     "postversion": "git push && git push --tags"
   },
   "bin": {
