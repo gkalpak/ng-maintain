@@ -35,7 +35,7 @@
   "dependencies": {
     "@gkalpak/ng-cla-check": "0.0.30",
     "@gkalpak/ng-maintain-utils": "0.0.20",
-    "@gkalpak/ng-pr-merge": "~0.0.29"
+    "@gkalpak/ng-pr-merge": "0.0.30"
   },
   "devDependencies": {
     "@gkalpak/cli-utils": "0.0.1",
