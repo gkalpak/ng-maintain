@@ -33,14 +33,14 @@
     "url": "git+https://github.com/gkalpak/ng-maintain.git"
   },
   "dependencies": {
-    "@gkalpak/ng-cla-check": "^0.2.2",
-    "@gkalpak/ng-maintain-utils": "^0.1.2",
-    "@gkalpak/ng-pr-merge": "0.0.35"
+    "@gkalpak/ng-cla-check": "^0.2.4",
+    "@gkalpak/ng-maintain-utils": "^0.1.3",
+    "@gkalpak/ng-pr-merge": "0.0.36"
   },
   "devDependencies": {
-    "@gkalpak/cli-utils": "^0.1.9",
-    "eslint": "^7.4.0",
-    "eslint-plugin-jasmine": "^4.1.1",
-    "jasmine": "^3.5.0"
+    "@gkalpak/cli-utils": "^0.1.10",
+    "eslint": "^7.31.0",
+    "eslint-plugin-jasmine": "^4.1.2",
+    "jasmine": "^3.8.0"
   }
 }
