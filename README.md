@@ -38,8 +38,8 @@ The following test-types/modes are available:
   code-linting and e2e tests are omitted._
 
 
-[build-status]: https://travis-ci.org/gkalpak/ng-maintain
-[build-status-image]: https://travis-ci.org/gkalpak/ng-maintain.svg?branch=master
+[build-status]: https://github.com/gkalpak/ng-maintain/actions/workflows/ci.yml
+[build-status-image]: https://github.com/gkalpak/ng-maintain/actions/workflows/ci.yml/badge.svg?branch=master&event=push
 [ng-cla-check]: https://www.npmjs.com/package/@gkalpak/ng-cla-check
 [ng-maintain-utils]: https://www.npmjs.com/package/@gkalpak/ng-maintain-utils
 [ng-pr-merge]: https://www.npmjs.com/package/@gkalpak/ng-pr-merge
